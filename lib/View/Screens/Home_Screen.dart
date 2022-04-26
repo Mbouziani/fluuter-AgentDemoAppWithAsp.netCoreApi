@@ -35,14 +35,41 @@ class HomeScreen extends ConsumerWidget {
                 shrinkWrap: true,
                 itemCount: agent.length,
                 itemBuilder: (context, index) {
-                  return CostumeRow(
-                    id: agent[index].agentId!,
-                    name: agent[index].agentName!,
-                    email: agent[index].agentEmail!,
-                    address: agent[index].agentAddress!,
-                    mobile: agent[index].agentMobile!,
-                    tele: agent[index].agentTele!,
-                  );
+                  return agent.isNotEmpty
+                      ? CostumeRow(
+                          id: agent[index].agentId!,
+                          name: agent[index].agentName!,
+                          email: agent[index].agentEmail!,
+                          address: agent[index].agentAddress!,
+                          mobile: agent[index].agentMobile!,
+                          tele: agent[index].agentTele!,
+                        )
+                      : Center(
+                          child: Column(
+                            children: const [
+                              Text(
+                                'Empty List',
+                                style: TextStyle(
+                                  color: Colors.black87,
+                                  fontSize: 25.0,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                'Try to add new Agent',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 13.0,
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
                 },
                 separatorBuilder: (context, index) => Container(
                   width: double.infinity,

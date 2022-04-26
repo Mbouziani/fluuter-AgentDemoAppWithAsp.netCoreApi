@@ -2,7 +2,7 @@ import 'package:agent_application/Models/Agent_Model.dart';
 import 'package:dio/dio.dart';
 
 class AgentDataApi {
-  final String baseUrl = 'http://localhost:5065';
+  final String baseUrl = 'http://omexpro4it.com';
   List<AgentModel> agentModelList = [];
   Future<List<AgentModel>> getAgents() async {
     try {
